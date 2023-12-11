@@ -1,0 +1,44 @@
+Principe :
+Le bloc try permet d'encapsuler un ensemble d'instructions qui pourrait générer une exception (une erreur). Si une exception est levée dans le bloc try, le contrôle est transféré au bloc catch associé.
+
+Le bloc catch est utilisé pour gérer l'exception qui a été levée dans le bloc try. Vous pouvez spécifier le type d'exception que vous souhaitez gérer dans le bloc catch.
+
+Syntaxe :
+javascript
+Copy code
+try {
+  // Code où une exception pourrait se produire
+  // ...
+  throw new Error("Une erreur personnalisée"); // Vous pouvez également lever une exception manuellement
+} catch (error) {
+  // Gestion de l'exception
+  console.error("Une erreur s'est produite :", error.message);
+} finally {
+  // Code qui sera exécuté qu'il y ait eu une exception ou non
+  // Il est facultatif d'avoir une clause 'finally'
+}
+
+// Suite du code
+Explications :
+
+Dans le bloc try, vous placez le code où vous pensez qu'une exception pourrait se produire.
+Si une exception se produit dans le bloc try, le contrôle est transféré au bloc catch associé.
+Dans le bloc catch, vous spécifiez le paramètre error qui contient l'objet d'erreur associé à l'exception levée. Vous pouvez personnaliser le nom du paramètre (error est conventionnel, mais vous pouvez utiliser un autre nom).
+La clause finally est facultative et peut être utilisée pour spécifier un bloc de code qui sera exécuté qu'il y ait eu une exception ou non.
+Voici un exemple simple :
+
+javascript
+Copy code
+try {
+  // Code susceptible de générer une exception
+  const result = 10 / 0; // Tentative de division par zéro
+} catch (error) {
+  // Gestion de l'exception
+  console.error("Une erreur s'est produite :", error.message);
+} finally {
+  // Code qui sera exécuté qu'il y ait eu une exception ou non
+  console.log("Le bloc finally est exécuté.");
+}
+
+// Suite du code
+Cela permet de gérer gracieusement les erreurs et d'éviter que l'application ne s'arrête brusquement en cas d'exception.
